@@ -1,0 +1,43 @@
+{   // General settings
+    "window.confirmSaveUntitledWorkspace": false,
+    "update.enableWindowsBackgroundUpdates": true,
+    "window.zoomLevel": 2,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "editor.minimap.enabled": false,
+    "zenMode.hideLineNumbers": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.stickyScroll.enabled": true,
+    "terminal.integrated.stickyScroll.enabled": true,
+    "editor.stickyTabStops": true,
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "Cascadia Code",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.vscode": true,
+        "**/.ipynb_checkpoints": true,
+    },
+    // Python/Jupyter settings
+    "jupyter.interactiveWindow.textEditor.executeSelection": true,
+    "jupyter.askForKernelRestart": false,
+    "notebook.lineNumbers": "on",
+    "ruff.lint.args": ["--ignore=F401,E402,E731"],
+    "jupyter.runStartupCommands": ["%load_ext autoreload","%autoreload 2"],
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    // SSH settings
+    "remote.SSH.remotePlatform": {
+        "cdsw-public": "linux"
+    },
+}
