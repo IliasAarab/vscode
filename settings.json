@@ -1,17 +1,52 @@
-{   // General settings
+{
+    // General UI settings
     "window.confirmSaveUntitledWorkspace": false,
     "update.enableWindowsBackgroundUpdates": true,
     "window.zoomLevel": 2,
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
-    "editor.minimap.enabled": false,
-    "zenMode.hideLineNumbers": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.confirmSync": false,
+
+    // Editor settings
+    "editor.minimap.enabled": false,
     "editor.stickyScroll.enabled": true,
-    "terminal.integrated.stickyScroll.enabled": true,
     "editor.stickyTabStops": true,
     "editor.fontLigatures": true,
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+
+    // Terminal settings
+    "terminal.integrated.profiles.windows": {
+        "Git Bash": {
+            "path": ["C:\\Program Files\\Git\\bin\\bash.exe"],
+            "args": ["--login"]
+        }
+    },
+    "terminal.integrated.shellIntegration.enabled": false,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.stickyScroll.enabled": true,
     "terminal.integrated.fontFamily": "Cascadia Code",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorWidth": 2,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.defaultLocation": "editor",
+    "terminal.integrated.enableVisualBell": true,
+    "accessibility.signals.terminalBell": {"sound": "on"},
+    "workbench.editor.editorActionsLocation": "hidden",
+
+
+    // Zen Mode settings
+    "zenMode.showTabs": "none",
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": true,
+
+    // File and Workspace settings
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -23,21 +58,57 @@
         "**/.pytest_cache": true,
         "**/.vscode": true,
         "**/.ipynb_checkpoints": true,
+        "**/**.egg-info": true
     },
-    // Python/Jupyter settings
+
+    // Python settings
+    "debugpy.showPythonInlineValues": true,
+    "python.defaultInterpreterPath": "C:\\Mambaforge\\envs\\311\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.exclude": ["**/node_modules", "**/__pycache__", ".git", "**/notebooks", "**/scripts", "**/notebooks/**"],
+    "python.analysis.ignore": ["**/node_modules", "**/__pycache__", ".git", "**/notebooks", "**/scripts", "**/notebooks/**"],
+
+    // Jupyter settings
+    "jupyter.interactiveWindow.creationMode": "single",
+    "interactiveWindow.executeWithShiftEnter": true,
     "jupyter.interactiveWindow.textEditor.executeSelection": true,
     "jupyter.askForKernelRestart": false,
     "notebook.lineNumbers": "on",
-    "ruff.lint.args": ["--ignore=F401,E402,E731"],
-    "jupyter.runStartupCommands": ["%load_ext autoreload","%autoreload 2"],
-    "[python]": {
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit"
-        }
-    },
-    // SSH settings
+    "notebook.output.wordWrap": true,
+    "jupyter.runStartupCommands": [
+    "%load_ext autoreload",
+    "%autoreload 2",
+    "import sys",
+    "import os",
+    "def find_root_dir(current_path, folder_names):",
+    "    while current_path != os.path.dirname(current_path):",
+    "        for folder_name in folder_names:",
+    "            if current_path.endswith(folder_name):",
+    "                return current_path[:-(len(folder_name))]",
+    "        current_path = os.path.dirname(current_path)",
+    "    return current_path",
+    "folders = ['notebooks', 'scripts', 'tests']",
+    "current_path = os.getcwd()",
+    "root_dir = find_root_dir(current_path, folders)",
+    "if root_dir not in sys.path:",
+    "    sys.path.append(root_dir)",
+    "if root_dir != os.path.dirname(root_dir):", 
+    "    os.chdir(root_dir)"
+],
+
+
+    // Remote SSH settings
     "remote.SSH.remotePlatform": {
         "cdsw-public": "linux"
     },
+
+    // Linting settings
+    "ruff.lint.args": [
+        "--ignore=F401,E402,E731"
+    ],
+
+
 }
