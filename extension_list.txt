@@ -2,7 +2,9 @@ albert.tabout
 charliermarsh.ruff
 donjayamanne.python-extension-pack
 grapecity.gc-excelviewer
+ionutvmi.path-autocomplete
 kevinrose.vsc-python-indent
+ms-azuretools.vscode-azureresourcegroups
 ms-python.debugpy
 ms-python.python
 ms-python.vscode-pylance
