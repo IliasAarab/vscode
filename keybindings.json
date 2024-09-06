@@ -36,7 +36,7 @@
         "command": "outline.removeView"
     },
     {
-        "key": "ctrl+l ctrl+l",
+        "key": "ctrl+alt+l",
         "command": "workbench.action.toggleAuxiliaryBar"
     },
     {
@@ -48,5 +48,28 @@
         "key": "shift+enter",
         "command": "-jupyter.runcurrentcelladvance",
         "when": "editorTextFocus && isWorkspaceTrusted && jupyter.hascodecells && !editorHasSelection && !notebookEditorFocused"
+    },
+
+    // Experimental
+    {
+        "key": "alt+s",
+        "command": "cursorLeft",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+d",
+        "command": "cursorDown",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+f",
+        "command": "cursorRight",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+e",
+        "command": "cursorUp",
+        "when": "editorTextFocus"
     }
+    
 ]
